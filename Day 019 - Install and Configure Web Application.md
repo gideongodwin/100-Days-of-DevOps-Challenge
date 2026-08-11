@@ -17,7 +17,7 @@ The development of these websites is still in-progress, but we want to get the s
 
 ## Steps:
 
-1. Copy the `blog` and `cluster` directories to app server 2:
+1. Copy the `blog` and `cluster` directories to app server 2
     ```
     scp -r /home/thor/blog /home/thor/cluster steve@stapp02:/home/steve/
     ```
