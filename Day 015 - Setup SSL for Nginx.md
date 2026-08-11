@@ -42,7 +42,7 @@ They have some pre-requites to get ready that server for application deployment.
     vi /etc/nginx/nginx.conf
     ```
 
-6. Inside the `http {}` section > Add the Server Block
+6. Inside the `http {}` block > Add the Server Block
     ```
     ssl_certificate "/etc/nginx/ssl/nautilus.crt";
     ssl_certificate_key "/etc/nginx/ssl/nautilus.key";
