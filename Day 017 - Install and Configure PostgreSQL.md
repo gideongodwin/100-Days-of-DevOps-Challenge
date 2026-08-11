@@ -6,33 +6,26 @@ The application uses PostgreSQL database, so as a pre-requisite we need to set u
 
   > PostgreSQL database server is already installed on the Nautilus database server.
 
+- Create a database user `kodekloud_top` and set its password to `TmPcZjtRQx`.
 
-a. Create a database user kodekloud_top and set its password to TmPcZjtRQx.
+- Create a database `kodekloud_db4` and grant full permissions to user `kodekloud_top` on this database.
 
-
-b. Create a database kodekloud_db4 and grant full permissions to user kodekloud_top on this database.
-
-
-  > Note: Please do not try to restart PostgreSQL server service.
+> Note: Please do not try to restart PostgreSQL server service.
 
 ## Steps:
 
-1. Log in to the Database Server
+1. Log in to the database Server
     ```
     ssh peter@stdb01
     ```
 
-2. Switch to postgres user
+2. Switch to postgres user and access the PostgreSQL shell
     ```
     sudo su - postgres
-    ```
-
-3. Access PostgreSQL shell
-    ```
     psql
     ```
 
-4. Create the database user
+3. Create the database user
     ```
     CREATE USER kodekloud_top WITH PASSWORD 'TmPcZjtRQx';
     ```
