@@ -31,27 +31,32 @@ After an internal team meeting, they have decided to use the tomcat application 
    sudo vi /etc/tomcat/server.xml
    ```
 
-4. From the Jump Host, copy the file to App Server 2
+4. Save and exit
+   ```
+   exit
+   ```
+
+5. From the Jump Host, copy the file to App Server 2
    ```
    scp /tmp/ROOT.war steve@stapp02:/tmp/
    ```
 
-5. Then SSH to App Server 2
+6. SSH back into App Server 2
    ```
    ssh steve@stapp02
    ```
 
-6. On App Server 2, move it to the webapps folder:
+7. On App Server 2, move it to the webapps folder:
    ```
    sudo mv /tmp/ROOT.war /usr/share/tomcat/webapps/
    ```
 
-7. Start and Enable Tomcat
+8. Start and Enable Tomcat
    ```
    sudo systemctl enable --now tomcat
    ```
 
-8. Verify Deployment
+9. Verify Deployment
    ```
    curl http://stapp02:6300
    ```
