@@ -17,8 +17,10 @@ They have some pre-requites to get ready that server for application deployment.
 1. SSH into App Server 3 and switch to root user
     ```
     ssh banner@stapp03
-    sudo -i
     ```
+    ```
+    sudo -i    
+    ```   
 
 2. Install Nginx
     ```
@@ -30,7 +32,7 @@ They have some pre-requites to get ready that server for application deployment.
     mkdir -p /etc/nginx/ssl
     ```
 
-4. Move the existing certificate and key from /tmp into this directory
+4. Move the existing certificate and key from `/tmp` into this directory
     ```
     mv /tmp/nautilus.crt /etc/nginx/ssl/nautilus.crt
     mv /tmp/nautilus.key /etc/nginx/ssl/nautilus.key
@@ -40,10 +42,10 @@ They have some pre-requites to get ready that server for application deployment.
     vi /etc/nginx/nginx.conf
     ```
 
-6. Update the Server Block
+6. Inside the `http {}` section > Add the Server Block
     ```
-    ssl_certificate: "/etc/nginx/ssl/nautilus.crt";
-    ssl_certificate_key:"/etc/nginx/ssl/nautilus.key";
+    ssl_certificate "/etc/nginx/ssl/nautilus.crt";
+    ssl_certificate_key "/etc/nginx/ssl/nautilus.key";
     ```
 
 7. Create Test Web Page
@@ -56,15 +58,14 @@ They have some pre-requites to get ready that server for application deployment.
     ```
 9. Start and enable Nginx
     ```
-    systemctl start nginx
-    systemctl enable nginx
+    systemctl enable --now nginx
     ```
 10. Exit the server
     ```
     exit
     exit
     ```
-11. Final Testing from Jump Host
+11. Test from Jump Host
     ```
     curl -Ik https://stapp03
     ```
