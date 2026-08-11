@@ -1,4 +1,4 @@
-## Day 15: Setup SSL for Nginx
+## Day 15 - Setup SSL for Nginx
 
 ## Task Details:
 The system admins team of xFusionCorp Industries needs to deploy a new application on App Server 3 in Stratos Datacenter \
