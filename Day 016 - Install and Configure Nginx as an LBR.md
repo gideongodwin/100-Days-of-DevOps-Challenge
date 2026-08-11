@@ -41,17 +41,17 @@ Configure LBR server as per the information given below:
     ```
     > repeat for stapp02 and stapp03
 
-4. Back on the LBR server `stlb01` > edit the main Nginx configuration file.
+4. On the LBR server `stlb01` > edit the main Nginx configuration file.
     ```
     vi /etc/nginx/nginx.conf
     ```
-    >  Inside the `http {}` block, add a load-balancing upstream section and a server block for the LBR
+    >  Inside the `http {}` block, add an upstream block and a server block for the LBR
     
     ```
     upstream app_servers {
-        server stapp01:6100;
-        server stapp02:6100;
-        server stapp03:6100;
+        server stapp01:<port number you found in step 3>;
+        server stapp02:<port number you found in step 3>;
+        server stapp03:<port number you found in step 3>;
     }
     
     server {
@@ -71,7 +71,7 @@ Configure LBR server as per the information given below:
     systemctl restart nginx
     ```
 
-7. Test load balancing from LBR server:
+7. Test the Load Balancer:
     ```
     curl http://stlb01:80
     ```
