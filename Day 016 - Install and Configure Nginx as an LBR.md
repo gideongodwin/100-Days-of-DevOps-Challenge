@@ -1,4 +1,4 @@
-## Day 16: Install and Configure Nginx as an LBR
+## Day 16 - Install and Configure Nginx as an LBR
 
 ## Task Details:
 
