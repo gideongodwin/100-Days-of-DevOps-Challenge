@@ -17,39 +17,36 @@ The development of these websites is still in-progress, but we want to get the s
 
 ## Steps:
 
-1. SSH into app server 2
+1. Copy the `blog` and `cluster` directories to app server 2:
+    ```
+    scp -r /home/thor/blog /home/thor/cluster steve@stapp02:/home/steve/
+    ```
+    > Enter the password for steve when prompted SSH into app server 2
+
+2. SSH into app server 2
    ```
    ssh steve@stapp02
    ```
 
-2. Install Apache
+3. Install the `httpd` package
     ```
     sudo yum install -y httpd
     ```
 
-3. Configure Apache to use port `8086`
+4. Configure Apache to listen on port `8086`
     ```
     vi /etc/httpd/conf/httpd.conf
-    ## Change Listen 80 to Listen 8086
-    Listen 8086
     ```
+      > Change Listen 80 to Listen 8086
 
-4.  From the jump host, copy the blog and cluster directories to app server 2:
+5. Move the copied directories to `/var/www/html`
     ```
-    scp -r blog steve@stapp02:/home/steve/
-    scp -r cluster steve@stapp02:/home/steve/
-    ```
-    > Enter the password for steve when prompted
-
-5. On app server 2, move the copied directories to `/var/www/html`
-    ```
-    sudo mv * /var/www/html/
+    sudo mv /home/steve/blog /home/steve/cluster /var/www/html/
     ```
 
 6. Start and enable Apache
     ```
-    sudo systemctl restart httpd
-    sudo systemctl enable httpd
+    sudo systemctl enable --now httpd
     ```
 
 7. Test the websites
