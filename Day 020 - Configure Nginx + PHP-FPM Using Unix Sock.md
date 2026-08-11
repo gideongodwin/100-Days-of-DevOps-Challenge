@@ -20,61 +20,40 @@ The development team had a meeting with the production support team and they hav
 1. SSH into app server 3 and switch to root user
    ```
    ssh banner@stapp03
+   ```
+   ```
    sudo -i
    ```
 
 2. Install nginx
    ```
-   yum install nginx -y
+   dnf install nginx -y
    ```
 
-3. Configure nginx to use port `8094`
-    ```
-    # Open the main configuration file:
-    vi /etc/nginx/nginx.conf
-    
-    # edit the server block
-    server {
-        listen 8094;
-        listen [::]:8094;
-        server_name _;
-    
-        root /var/www/html;
-        index index.html index.php info.php;
-    }
-    ```
-
-4. Start nginx
-    ```
-    systemctl start nginx
-    ```
-
-5. Install `php-fpm` 8.1
+3. Install `php-fpm` 8.1
     ```
     # Install the EPEL and Remi repositories.
-    sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
-    sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-9.rpm -y
+    dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm -y
+    dnf install https://rpms.remirepo.net/enterprise/remi-release-9.rpm -y
     
     # Enable the CodeReady Builder (CRB) repository
-    sudo crb enable
+    crb enable
     
-    # Reset the default PHP module and enable the PHP 8.1 stream
-    sudo dnf module reset php -y
-    sudo dnf module enable php:remi-8.1 -y
-    
-    # Install PHP 8.1
-    sudo dnf install php php-cli php-fpm -y
+    # Enable PHP 8.1 stream and install
+    dnf module reset php -y
+    dnf module enable php:remi-8.1 -y
+    dnf install php php-cli php-fpm -y
     
     # Verify the installation
     php -v
     ```
 
-6. Open the main configuration file:
+4. Configure  to use port `8094` and Update the server block to configure `php-fpm` socket
     ```
     vi /etc/nginx/nginx.conf
     ```
 
-7. Update the server block to configure php-fpm socket
+5. Configure nginx to use port `8094` and Update the server block to configure `php-fpm` socket
     ```
     server {
         listen 8094;
@@ -104,12 +83,16 @@ The development team had a meeting with the production support team and they hav
     }
     ```
 
-8. Check nginx configuration
+6. Check nginx configuration, then start both service
    ```
    nginx -t
+   systemctl enable --now php-fpm
+   systemctl enable --now nginx
    ```
 
-9. Test the website
+7. Test from the Jump Host:
    ```
+   exit
+   exit
    curl http://stapp03:8094/index.php
    ```
