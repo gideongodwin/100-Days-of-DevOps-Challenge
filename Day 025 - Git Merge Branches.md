@@ -13,7 +13,9 @@ They recently shared the following requirements with DevOps team:
 
 1. SSH into the storage server and switch to root user:
     ```
-    ssh natasha@ststr01
+    ssh natasha@ststor01
+    ```
+    ```
     sudo -i
     ```
 
