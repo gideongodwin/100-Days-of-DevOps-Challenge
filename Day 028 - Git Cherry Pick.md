@@ -14,12 +14,14 @@ Accomplish this task for them, also remember to push your changes eventually.
 1. SSH into the Storage Server and switch to root user
     ```
     ssh natasha@ststor01
+    ```
+    ```
     sudo -i
     ```
 
-2. Navigate to the target directory
+2. Navigate to the repository
     ```
-    cd /usr/src/kodekloudrepos/ecommerce/
+    cd /usr/src/kodekloudrepos/ecommerce
     ```
 
 3. Verify 
@@ -29,11 +31,10 @@ Accomplish this task for them, also remember to push your changes eventually.
 
 4. Find the commits on the `feature` branch.
     ```
-    git log feature --oneline
+    git log feature --oneline --grep="Update info.txt"
     ```
-    > Look for the one titled `Update info.txt`
 
-5. Move to the destination branch where we apply these changes
+5. Switch to master
     ```
     git checkout master
     ```
