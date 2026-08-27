@@ -1,4 +1,4 @@
-## Day 34: Git Hook
+## Day 34 - Git Hook
 
 ## Task Details:
 
@@ -21,7 +21,7 @@ The team want to setup a hook on this repository, please find below more details
 
 2. Navigate to the clone repo
     ```
-    cd /usr/src/kodekloudrepos/ecommerce/
+    cd /usr/src/kodekloudrepos/ecommerce
     ```
 
 3. Switch to master
@@ -54,6 +54,6 @@ The team want to setup a hook on this repository, please find below more details
 
 8. Push the merged changes:
     ```
-    git push
+    git push origin master
     ```
 
