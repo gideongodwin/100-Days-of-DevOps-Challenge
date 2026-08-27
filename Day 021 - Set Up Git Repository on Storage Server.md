@@ -14,6 +14,8 @@ Follow the instructions below to create the Git repository on the `Storage serve
 1. SSH into the Storage Server and switch to root user
     ```
     ssh natasha@ststor01
+    ```
+    ```
     sudo -i
     ```
 
@@ -25,5 +27,7 @@ Follow the instructions below to create the Git repository on the `Storage serve
 3. Create a Bare Git Repository
     ```
     cd /opt/
+    ```
+    ```
     git init --bare official.git
     ```
