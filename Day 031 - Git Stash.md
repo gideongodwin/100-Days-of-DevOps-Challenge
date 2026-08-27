@@ -12,17 +12,19 @@ One of the developers stashed some in-progress changes in this repository, but n
 1. SSH into the Storage Server and switch to root user
     ```
     ssh natasha@ststor01
+    ```
+    ```
     sudo -i
     ```
 
-2. Navigate to the target directory
+2. Navigate to the repository
     ```
     cd /usr/src/kodekloudrepos/beta/
     ```
 
 3.  Verify the stash list
     ```
-    git stash
+    git stash list
     ```
 
 4. Restore the specific stash 
@@ -33,6 +35,7 @@ One of the developers stashed some in-progress changes in this repository, but n
 
 5. Commit the restored changes
     ```
+    git add .
     git commit -m "unstashed some changes"
     ```
 
