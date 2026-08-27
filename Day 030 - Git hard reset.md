@@ -16,12 +16,14 @@ Also make sure to push your changes.
 1. SSH into the Storage Server and switch to root user
     ```
     ssh natasha@ststor01
+    ```
+    ```
     sudo -i
     ```
 
-2. Navigate to the target directory
+2. Navigate to the repository
     ```
-    cd /usr/src/kodekloudrepos/beta/
+    cd /usr/src/kodekloudrepos/beta
     ```
 
 3. Identify the Commit Hash with the message "add data.txt file"
