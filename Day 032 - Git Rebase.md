@@ -15,6 +15,8 @@ Also remember to push your changes once done.
 1. SSH into the Storage Server and switch to root user
     ```
     ssh natasha@ststor01
+    ```
+    ```
     sudo -i
     ```
 
@@ -28,12 +30,17 @@ Also remember to push your changes once done.
     git branch
     ```
 
-4. Rebase `feature` onto `master`
+4. Confirm you're on the `feature` branch
+    ```
+    git checkout feature
+    ```
+
+5. Rebase `feature` onto `master`
     ```
     git rebase master
     ```
 
-5. Push the updated branch
+6. Push the updated branch
     ```
     git push origin feature --force
     ```
