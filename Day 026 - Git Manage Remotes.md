@@ -1,6 +1,7 @@
-## Day 26- Git Manage Remotes
+## Day 26 - Git Manage Remotes
 
 ## Task Details:
+
 The xFusionCorp development team added updates to the project that is maintained under `/opt/cluster.git` repo and cloned under `/usr/src/kodekloudrepos/cluster` 
 Recently some changes were made on Git server that is hosted on Storage server in `Stratos DC` 
 The DevOps team added some new Git remotes, so we need to update remote on `/usr/src/kodekloudrepos/cluster` repository as per details mentioned below:
@@ -16,6 +17,8 @@ The DevOps team added some new Git remotes, so we need to update remote on `/usr
 1. SSH into the storage server
     ```
     ssh natasha@ststor01
+    ```
+    ```
     sudo -i 
     ```
 
@@ -29,18 +32,23 @@ The DevOps team added some new Git remotes, so we need to update remote on `/usr
     git remote add dev_cluster /opt/xfusioncorp_cluster.git
     ```
 
-4. Copy the file into the repo
+4. Confirm you're on master branch
+    ```
+    git checkout master
+    ```
+
+5. Copy the file into the repo
     ```
     cp /tmp/index.html .
     ```
 
-5. Add and commit the file
+6. Add and commit the file
     ```
     git add index.html
     git commit -m "Added index.html file"
     ```
 
-6. Push master branch to the new remote
+7. Push master branch to the new remote
     ```
     git push dev_cluster master
     ```
