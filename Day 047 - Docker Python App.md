@@ -6,23 +6,23 @@ A python app needed to be Dockerized, and then it needs to be deployed on `App S
 
 We have already copied a `requirements.txt` file (having the app dependencies) under `/python_app/src/` directory on App Server 2. Further complete this task as per details mentioned below:
 
-Create a Dockerfile under `c` directory:
+- Create a Dockerfile under `c` directory:
 
-Use any `python` image as the base image.
+- Use any `python` image as the base image.
 
-Install the dependencies using `requirements.txt` file
+- Install the dependencies using `requirements.txt` file
 
-Expose the port `6400`
+- Expose the port `6400`
 
-Run the `server.py` script using `CMD`
+- Run the `server.py` script using `CMD`
 
-Build an image named `nautilus/python-app` using this Dockerfile
+- Build an image named `nautilus/python-app` using this Dockerfile
 
-Once image is built, create a container named `pythonapp_nautilus`
+- Once image is built, create a container named `pythonapp_nautilus`
 
-Map port `6400` of the container to the host port `8092`
+- Map port `6400` of the container to the host port `8092`
 
-Once deployed, you can test the app using curl command on App Server 2 `curl http://localhost:8092/`
+- Once deployed, you can test the app using curl command on App Server 2 `curl http://localhost:8092/`
 
 ## Steps:
 
@@ -73,7 +73,7 @@ Once deployed, you can test the app using curl command on App Server 2 `curl htt
     docker ps
     ```
 
-8. Test that the application
+8. Test the application
     ```
     curl http://localhost:8092/
     ```
