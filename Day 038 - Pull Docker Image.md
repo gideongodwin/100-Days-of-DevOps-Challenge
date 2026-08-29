@@ -19,12 +19,12 @@ a. Pull `busybox:musl` image on `App Server 3` in Stratos DC and re-tag (create 
     docker pull busybox:musl
     ```
 
-3. Re-tag the image
+3. Create the new tag
     ```
     docker tag busybox:musl busybox:blog
     ```
 
-4. Verify the newly tagged image
+4. Verify the images
     ```
     docker images
     ```
