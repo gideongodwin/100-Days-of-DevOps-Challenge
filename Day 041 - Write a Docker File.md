@@ -1,8 +1,11 @@
 ## Day 41 - Write a Docker File
 
 ## Task Details:
+
 As per recent requirements shared by the Nautilus application development team, they need custom images created for one of their projects.
-Several of the initial testing requirements are already been shared with DevOps team. Therefore, create a docker file `/opt/docker/Dockerfile` (please keep `D` capital of Dockerfile) on `App server 1` in `Stratos DC` and configure to build an image with the following requirements:
+Several of the initial testing requirements are already been shared with DevOps team.
+
+- Create a docker file `/opt/docker/Dockerfile` (please keep `D` capital of Dockerfile) on `App server 1` in `Stratos DC` and configure to build an image with the following requirements:
 
 - Use `ubuntu:24.04` as the base image.
 
@@ -10,7 +13,7 @@ Several of the initial testing requirements are already been shared with DevOps 
 
 ## Steps:
 
-1. Log in to App Server 1
+1. SSH into App Server 1
     ```
     ssh tony@stapp01
     ```
@@ -30,10 +33,10 @@ Several of the initial testing requirements are already been shared with DevOps 
     FROM ubuntu:24.04
     
     RUN apt-get update && \
-        apt-get install -y apache2
+        apt-get install -y apache2 && \
+        rm -rf /var/lib/apt/lists/*
     
     RUN sed -i 's/Listen 80/Listen 6100/g' /etc/apache2/ports.conf
-    
     
     EXPOSE 6100
     
@@ -42,7 +45,7 @@ Several of the initial testing requirements are already been shared with DevOps 
 
 5. Build the Image
     ```
-    docker build . -t apache2
+    docker build -t apache2 .
     ```
 
 6. Verify
