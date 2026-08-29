@@ -8,22 +8,22 @@ One of the Nautilus developer was working to test new changes on a container. He
 
 ## Steps:
 
-1. Connect to Application Server 2
+1. Connect to App Server 2
     ```
     ssh steve@stapp02
     ```
 
-2. Verify the Source Container
+2. Confirm `ubuntu_latest` is running
     ```
     docker ps
     ```
 
-3. Commit the Changes to a New Image
+3. Create the new image from the container
     ```
     docker commit ubuntu_latest cluster:datacenter
     ```
 
-4. Confirm the New Image Exists
+4. Verify the image
     ```
     docker images
     ```
