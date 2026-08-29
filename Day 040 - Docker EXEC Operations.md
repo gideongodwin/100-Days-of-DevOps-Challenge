@@ -17,18 +17,19 @@ One of the Nautilus DevOps team members was working to configure services on a `
     ssh banner@stapp03
     ```
 
-2. Confirm the kkloud container is running
+2. Confirm the `kkloud` container
     ```
     docker ps
     ```
 
-3. Access the kkloud Container
+3. Enter the `kkloud` Container
     ```
     docker exec -it kkloud /bin/bash
     ```
 
-4. Install Apache2
+4. Install `Apache2`
     ```
+    apt update
     apt install apache2 -y
     ```
 
@@ -44,7 +45,10 @@ One of the Nautilus DevOps team members was working to configure services on a `
 
 7. Verify that the service is running and listening on the correct port
     ```
-    service start status
+    service apache2 status
+    ```
+    ```
+    ss -lntp | grep 5000
     ```
 
 8. Exit the container
