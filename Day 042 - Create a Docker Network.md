@@ -18,7 +18,7 @@ One of the team members has been assigned a ticket where he has been asked to cr
       ssh banner@stapp03
       ```
 
-  2. Create the Macvlan Network
+  2. Create the `macvlan` network
       ```
       docker network create -d macvlan --subnet=10.10.1.0/24 --ip-range=10.10.1.0/24 official
       ```
