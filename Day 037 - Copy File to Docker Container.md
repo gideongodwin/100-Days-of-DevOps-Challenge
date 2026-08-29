@@ -8,12 +8,12 @@ The Nautilus DevOps team possesses confidential data on `App Server 1` in the `S
 
 ## Steps:
 
-1. Access the Application Server
+1. Connect to App Server 1
     ```
     ssh tony@stapp01
     ```
 
-2. Verify that the target container
+2. Confirm the container exists
     ```
     docker ps -a
     ```
